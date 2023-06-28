@@ -1,4 +1,4 @@
-# ChatGPT Clone
+# ChatGPT Clone (Rishabh's Weather)
 
 This project aims to create a ChatGPT clone using HTML, Flask, and the OpenAI API. The ChatGPT clone will provide an interactive chat interface where users can have conversations with an AI-powered language model.
 
