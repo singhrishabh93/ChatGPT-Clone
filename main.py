@@ -22,8 +22,11 @@ def qa():
         print(chat)
         if chat:
             data = {"result": f"{chat['answer']}"}
-        data = {"result": f"Answer of {question}"}
-        return jsonify(data)
+            return jsonify(data)
+        else:
+            data = {"result": f"Answer of {question}"}
+            mongo.db.chats.insert_one({"question" : question, "answer" : f"Answer from open AI for {question}"})
+            return jsonify(data)
     data = {"result": "Thanks"}
     return jsonify(data)
 
