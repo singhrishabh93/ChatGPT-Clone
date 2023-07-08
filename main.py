@@ -16,9 +16,15 @@ def home():
 @app.route("/api", methods=["GET", "POST"])
 def qa():
     if request.method== "POST":
-        data = {"result": "Hey"}
+        print(request.json)
+        question = request.json.get("question")
+        chat = mongo.db.chats.find_one({"question" : question})
+        print(chat)
+        if chat:
+            data = {"result": f"{chat['answer']}"}
+        data = {"result": f"Answer of {question}"}
         return jsonify(data)
-    data = {"result": "Hey"}
+    data = {"result": "Thanks"}
     return jsonify(data)
 
 app.run(debug=True)
